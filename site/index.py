@@ -247,6 +247,8 @@ def gencode():
         file.write(f"M104 S{round(Decimal(tsh+tih*loopbigcount),0)}\n")
 
         file.write(f";Layer {layer}\n")
+	# address floating point error accumulation
+	file.write(f"G92 E0; address floating point error accumulation\n")
 
         #Layer Marker Bottom Left
         file.write(f"G1 F{int(ps*60)} X-2 E{round(Decimal(corenermarker),5)}\n")
