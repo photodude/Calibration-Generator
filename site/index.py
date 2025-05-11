@@ -149,7 +149,6 @@ def gencode():
     file.write(f"G92 E0\n")
     file.write(f"G1 F200 E1\n")
     file.write(f"G92 E0\n")
-    file.write(f"G90\n")
 
     file.write(f"{sgcode}\n")
 
@@ -161,7 +160,11 @@ def gencode():
     zpos = lh
     epos = 0
     
-
+    #Enforce Absolute extrusion for the bottom layers (layers 1-2)      
+    file.write(f";Enforce Absolute extrusion\n")
+    file.write(f";\n")
+    file.write(f"G90 ; use absolute coordinates\n")
+    file.write(f";\n")
 
     #Start Movement        
     file.write(f";Start Movement\n")
